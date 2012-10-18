@@ -5,7 +5,7 @@ define([
     'collections/stories'
     ], function($, _, Backbone, storyCollection) {
     var storyListView = Backbone.View.extend({
-        el: $("#story-list"),
+        el: $("#story-content"),
         initialize: function() {
             var self = this;
             this.template = _.template($("#story-list").html());
@@ -32,13 +32,18 @@ define([
                 return;
             }
             var self = this;
+            var $el = $(this.el);
             var stories = this.collection.models;
             // Render the template
             var data = {
                 _: _,
                 stories: stories
             };
-            $(this.el).html(this.template(data));
+            var rendered_template = this.template(data);
+            $el.fadeOut(function() {
+                $el.html(rendered_template);
+                $el.fadeIn();
+            });
         }
     });
     return new storyListView();

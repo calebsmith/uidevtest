@@ -4,3 +4,6 @@ body {
 body p {
   color: red;
 }
+body #story-list {
+  display: none;
+}
