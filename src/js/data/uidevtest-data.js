@@ -1,4 +1,4 @@
-json_data = {
+var json_data = {
     "objects": [{
         "author": ["Gail Williford"],
         "categories_name": ["Local","Watersports"],
