@@ -1,26 +1,42 @@
 define([
     'jquery',
     'underscore',
-    'backbone'
-    // 'collections/stories',
-    ], function($, _, Backbone) {
+    'backbone',
+    'collections/stories'
+    ], function($, _, Backbone, storyCollection) {
     var storyListView = Backbone.View.extend({
         el: $("#story-list"),
         initialize: function() {
             var self = this;
             this.template = _.template($("#story-list").html());
-            // Build story collection
-            // FIXME: Uncomment below when collection is defined
-            /*
+            // Build story collection from local JSON data
             this.collection = storyCollection;
-            this.collection.bind('all', this.render, this);
-            */
+            this.collection.bind('completed_loading', this.render, this);
+            this.collection.fetch({
+                success: function(data) {
+                    /*
+                    Unpack fetched data into story objects and fill the
+                    collection.
+                    */
+                    var stories = data.toJSON()[0].objects;
+                    self.collection.add(stories);
+                    self.collection.is_loaded = true;
+                    // Trigger a custom event. NB - add triggers for each model
+                    self.collection.trigger('completed_loading');
+                }
+            });
         },
         render: function() {
+            // Early exit on initial load
+            if (this.collection.is_loaded !== true) {
+                return;
+            }
             var self = this;
+            var stories = this.collection.models;
             // Render the template
             var data = {
-                _: _
+                _: _,
+                stories: stories
             };
             $(this.el).html(this.template(data));
         }
