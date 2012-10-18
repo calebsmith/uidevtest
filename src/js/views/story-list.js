@@ -12,6 +12,7 @@ define([
             this.template = _.template($("#story-list").html());
             // Build story collection from local JSON data
             this.detail_view = new storyDetailView();
+            this.detail_view.storyListView = self;
             this.collection = new storyCollection();
             this.collection.bind('completed_loading', this.render, this);
             this.collection.fetch({
@@ -33,7 +34,7 @@ define([
                 }
             });
         },
-        render: function() {
+        render: function(initial) {
             // Early exit on initial load
             if (this.collection.is_loaded !== true) {
                 return;
@@ -41,6 +42,21 @@ define([
             var self = this;
             var $el = $(this.el);
             var stories = this.collection.models;
+            // Call detail view if get parameters
+            var story_arg = self.collection.get_params.story;
+            if (initial !== false && story_arg && _.isString(story_arg) &&
+                story_arg.substring(0, 3) === 'sto') {
+                story_arg = parseInt(story_arg.slice(3), 10);
+                if (!_.isNaN(story_arg)) {
+                    story_arg -= 1;
+                    if (story_arg >= 0 && story_arg < this.collection.length) {
+                        self.detail_view.render(
+                            self.collection.models[story_arg]
+                        );
+                        return;
+                    }
+                }
+            }
             // Render the template
             var data = {
                 _: _,
@@ -64,7 +80,6 @@ define([
                     var $link_element = $(link_element);
                     $link_element.click(function(e){
                         var storyIndex = $link_element.data().storyIndex;
-                        self.detail_view.storyListView = self;
                         self.detail_view.render(
                             self.collection.models[storyIndex - 1]
                         );

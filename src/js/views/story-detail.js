@@ -23,8 +23,10 @@ define([
             $el.fadeOut('fast', function() {
                 $el.html(rendered_template);
                 $el.fadeIn('fast');
-                $('#story-list-link').click(function(e){
-                    self.storyListView.render();
+                $('#story-list-link').click(function(e) {
+                    // Pass list view false to indicate this is not the intiial
+                    // page load.
+                    self.storyListView.render(false);
                 });
             });
         }
