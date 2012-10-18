@@ -8851,18 +8851,41 @@ body #story-list {
   display: none;
 }
 body a:link a:visited {
-  color: #193c61;
+  color: #036dbe;
 }
 body a:hover a:active {
   color: #b93c61;
 }
-body img.story-list-thumbnail {
-  padding: 20px;
+#story-list-view img.story-thumbnail {
+  padding: 3px;
+  background-color: #ffffff;
+  border: 1px solid #999999;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 2px 2px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 2px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 2px 2px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 2px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px rgba(0, 0, 0, 0.2);
 }
-body span.story-list-categories {
+#story-list-view h2.headline {
+  font-size: 16px;
+  font-style: bold;
+  color: #036dbe;
+}
+#story-list-view span.categories {
   display: inline-block;
 }
-body span.story-list-categories p {
+#story-list-view span.categories p {
+  font-size: 14px;
+  font-color: #444444;
+}
+#story-list-view span.story-times p {
   font-size: 14px;
   font-color: #444444;
 }

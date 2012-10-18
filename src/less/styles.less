@@ -3,7 +3,7 @@
 @import "/libs/responsive.less";
 
 /* Global Style variables */
-@blue: #193c61;
+@blue: #036dbe;
 @purple: #b93c61;
 @gray: #444444;
 
@@ -25,12 +25,32 @@ body {
     a:hover a:active {
         color: @purple;
     }
+}
 
-    img.story-list-thumbnail {
-        padding: 20px;
+#story-list-view {
+    img.story-thumbnail {
+        padding: 3px;
+        background-color: @white;
+        border: 1px solid @grayLight;
+        .border-radius(5px);
+        .box-shadow(2px 2px rgba(0, 0, 0, .2));
     }
-    span.story-list-categories {
+
+    h2.headline {
+        font-size: 16px;
+        font-style: bold;
+        color: @blue;
+    }
+
+    span.categories {
         display: inline-block;
+        p {
+            font-size: 14px;
+            font-color: @gray;
+        }
+    }
+
+    span.story-times {
         p {
             font-size: 14px;
             font-color: @gray;
