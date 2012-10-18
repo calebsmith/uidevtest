@@ -32,7 +32,7 @@
                                 <p><%= story.get_categories_display() %></p>
                             </span>
                             <span class="story-times">
-                                <p>Published: <%= story.get_pub_date_display() %></p>
+                                <p>Posted: <%= story.get_pub_date_display() %></p>
                                 <p>Updated: <%= story.get_updated_display() %></p>
                             </span>
                         </div>
@@ -41,9 +41,29 @@
             </div>
         </script>
         <script type="text/html" id="story-detail">
-            Home &raquo; <a id="story-list-link" href="#">News</a>
-            <h2><%= story.get_title_display() %></h2>
-            <p><%= story.get('story') %></p>
+            <div class="row-fluid">
+                <div class="span12">
+                    <div id="header" class='navbar'>
+                        Home &raquo; <a id="story-list-link" href="#">News</a>
+                    </div>
+                    <h2><%= story.get_title_display() %></h2>
+                    <span class="story-times">
+                        <p>Updated: <%= story.get_updated_display() %> |
+                        Posted: <%= story.get_pub_date_display() %>
+                        </p>
+                    </span>
+                </div>
+                <div class="span2">
+                    <img id="story-image" src="<%= story.get('lead_photo_image_url') %>" alt="<%= story.get('lead_photo_caption')%>" />
+                    <p id="photo-credit"><%= story.get('lead_photo_credit') %></p>
+                    <p id="photo-caption"><%= story.get('lead_photo_caption') %></p>
+                </div>
+                <div class="span10">
+                    <span id="social-links"></span>
+                    <p>By: <%= story.get_author_display() %></p>
+                    <p><%= story.get('story') %></p>
+                </div>
+            </div>
         </script>
     </body>
 </html>
