@@ -10,7 +10,7 @@ define([
             var self = this;
             this.template = _.template($("#story-list").html());
             // Build story collection from local JSON data
-            this.collection = storyCollection;
+            this.collection = new storyCollection();
             this.collection.bind('completed_loading', this.render, this);
             this.collection.fetch({
                 success: function(data) {

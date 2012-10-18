@@ -8877,6 +8877,7 @@ body a:hover a:active {
   font-size: 16px;
   font-style: bold;
   color: #036dbe;
+  line-height: 15px;
 }
 #story-list-view span.categories {
   display: inline-block;
@@ -8884,6 +8885,8 @@ body a:hover a:active {
 #story-list-view span.categories p {
   font-size: 14px;
   font-color: #444444;
+  line-height: 15px;
+  padding-bottom: 10px;
 }
 #story-list-view span.story-times p {
   font-size: 14px;

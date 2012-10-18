@@ -4,8 +4,9 @@ define([
     'models/story'
     ], function(_, Backbone, storyModel) {
         var storyCollection = Backbone.Collection.extend({
-           url: '../js/data/uidevtest-data.js'
+           url: '../js/data/uidevtest-data.js',
+           model: storyModel
         });
-        return new storyCollection({model:storyModel});
+        return storyCollection;
     }
 );

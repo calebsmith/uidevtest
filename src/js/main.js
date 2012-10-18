@@ -4,7 +4,8 @@ require.config({
         underscore: 'libs/underscore.min',
         backbone: 'libs/backbone.min',
         modernizr: 'libs/modernizr-2.6.2.min',
-        bootstrap: 'libs/bootstrap.min'
+        bootstrap: 'libs/bootstrap.min',
+        datejs: 'libs/date.min'
     },
     shim: {
         'backbone': {

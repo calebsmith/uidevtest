@@ -27,21 +27,13 @@
                             <img src="<%= story.get('lead_photo_image_thumb') %>" alt="<%= story.get('lead_photo_caption') %>"class="story-thumbnail"/>
                         </div>
                         <div class="span10">
-                            <h2 class="headline"><%= story.get('title') %></h2>
+                            <h2 class="headline"><%= story.get_title_display() %></h2>
                             <span class="categories">
-                                <% // Pack categories into a comma separated string
-                                var categories = _.reduce(story.get('categories_name'), function(memo, category) {
-                                    if (memo) {
-                                        return memo + ', ' + category;
-                                    } else {
-                                        return category;
-                                    }
-                                }, ''); %>
-                                <p><%= categories %></p>
+                                <p><%= story.get_categories_display() %></p>
                             </span>
                             <span class="story-times">
-                                <p>Published: <%= story.get('pub_date') %></p>
-                                <p>Updated: <%= story.get('updated') %></p>
+                                <p>Published: <%= story.get_pub_date_display() %></p>
+                                <p>Updated: <%= story.get_updated_display() %></p>
                             </span>
                         </div>
                     </div>
