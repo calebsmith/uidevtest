@@ -1,12 +1,39 @@
+/* Import Bootstrap */
+@import "/libs/bootstrap.less";
+@import "/libs/responsive.less";
+
+/* Global Style variables */
+@blue: #193c61;
+@purple: #b93c61;
+@gray: #444444;
+
 body {
+    
+    padding-top: 25px;
+    padding-left: 10px;
+    padding-bottom: 40px;
 
-    p {
-        color: red;
-    }
-
-    background-color: #0F0;
-
+    // story list view
     #story-list {
         display: none;
+    }
+
+    a:link a:visited {
+        color: @blue;
+    }
+
+    a:hover a:active {
+        color: @purple;
+    }
+
+    img.story-list-thumbnail {
+        padding: 20px;
+    }
+    span.story-list-categories {
+        display: inline-block;
+        p {
+            font-size: 14px;
+            font-color: @gray;
+        }
     }
 }

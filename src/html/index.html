@@ -23,7 +23,28 @@
             <div class="row-fluid">
                 <div class="span12">
                     <% _.each(stories, function(story) { %>
-                        <h2><%= story.get('title') %></h2>
+                        <% if(story) {console.log(story);} %>
+                        <div class="row-fluid">
+                            <div class="span2">
+                                <img src="<%= story.get('lead_photo_image_thumb') %>" alt="<%= story.get('lead_photo_caption') %>"class="story-list-thumbnail"/>
+                            </div>
+                            <div class="span10">
+                                <h2><%= story.get('title') %></h2>
+                                <span class="story-list-categories">
+                                    <% // Pack categories into a comma separated string
+                                    var categories = _.reduce(story.get('categories_name'), function(memo, category) {
+                                        if (memo) {
+                                            return memo + ', ' + category;
+                                        } else {
+                                            return category;
+                                        }
+                                    }, ''); %>
+                                    <p><%= categories %></p>
+                                </span>
+                                <p>Published: <%= story.get('pub_date') %></p>
+                                <p>Updated: <%= story.get('updated') %></p>
+                            </div>
+                        </div>
                     <% }); %>
                 </div>
             </div>

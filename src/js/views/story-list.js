@@ -19,6 +19,11 @@ define([
                     collection.
                     */
                     var stories = data.toJSON()[0].objects;
+                    /*
+                    FIXME: This is a hack to remove the autofill behavior
+                    that packs the JSON data into one model.
+                    */
+                    self.collection.reset();
                     self.collection.add(stories);
                     self.collection.is_loaded = true;
                     // Trigger a custom event. NB - add triggers for each model
