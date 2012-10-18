@@ -21,13 +21,13 @@
         </div>
         <script type="text/html" id="story-list">
             <div id="story-list-view">
-                <% _.each(stories, function(story) { %>
+                <% _.each(stories, function(story, index) { %>
                     <div class="row-fluid">
                         <div class="span2">
-                            <img src="<%= story.get('lead_photo_image_thumb') %>" alt="<%= story.get('lead_photo_caption') %>"class="story-thumbnail"/>
+                            <img data-story-index="<%= index + 1 %>" src="<%= story.get('lead_photo_image_thumb') %>" alt="<%= story.get('lead_photo_caption') %>"class="story-thumbnail"/>
                         </div>
                         <div class="span10">
-                            <h2 class="headline"><%= story.get_title_display() %></h2>
+                            <h2 data-story-index="<%= index + 1 %>" class="headline"><%= story.get_title_display() %></h2>
                             <span class="categories">
                                 <p><%= story.get_categories_display() %></p>
                             </span>
@@ -39,6 +39,11 @@
                     </div>
                 <% }); %>
             </div>
+        </script>
+        <script type="text/html" id="story-detail">
+            Home &raquo; <a id="story-list-link" href="#">News</a>
+            <h2><%= story.get_title_display() %></h2>
+            <p><%= story.get('story') %></p>
         </script>
     </body>
 </html>
