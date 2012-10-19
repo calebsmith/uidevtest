@@ -6,7 +6,8 @@
 @blue: #036dbe;
 @purple: #b93c61;
 @gray: #444444;
-@light_gray: #cdcdcd;
+@grayLight: #cdcdcd;
+@grayLightest: #898989;
 
 body {
     
@@ -68,37 +69,93 @@ body {
     h1, h2, p, a {
         font-family: arial;
     }
+
     a {
         color: @blue;
     }
+
     #breadcrumb {
-        border-top: 1px solid @light_gray;
-        border-bottom: 1px solid @light_gray;
+        border-top: 1px solid @grayLight;
+        border-bottom: 1px solid @grayLight;
         font: 11px bold @blue;
     }
+
     .headline {
         font: 24px "arial";
         color: @gray;
     }
+
     .authors {
         color: @blue;
     }
+
     .social {
         font: 11px bold @blue;
         cursor: pointer;
+
+        a {
+            text-decoration: underline;
+            padding: 0px 20px 9px 0px;
+            :hover {
+                filter: none;
+                -webkit-filter: grayscale(0);
+            }
+        }
+
+        .icon {
+            -webkit-filter: grayscale(0.5) blur(10px);
+            display: inline-block;
+            margin-right: 5px;
+            padding: 0px;
+            width: 20px;
+            height: 20px;
+            background:url('../images/uidevtest-sprites.png') 0 0 no-repeat;
+
+            @media(min-width: 1210px) {
+                // Grayscale filter for firefox, IE, and webkit respectively
+                filter: url(../images/filters.svg#grayscale);
+                filter: gray;
+                -webkit-filter: grayscale(1);
+            }
+        }
+
+        .comment {background-position: 0px 0;}
+        .share {background-position: -20px 0;}
+        .favorite {background-position: -40px 0;}
+        .vote {background-position: -60px 0;}
     }
+
     .story-times {
         font-size: 11px;
         color: @gray;
     }
+
     .story {
         font-size: 14px;
         font-height: 18px;
         color: @gray;
     }
+
     #photo-summary {
         font-size: 14px;
         font-height: 14px;
         color: @gray;
+    }
+
+    #photo-credit {
+        font-size: 14px;
+        font-height: 14px;
+        color: @grayLightest;
+
+        @media(min-width: 1210px){
+            position: relative;
+            top: -22px;
+            left: -15px;
+            padding: 4px;
+            float: right;
+            color: @black;
+            background-color: @white;
+            opacity: 0.6;
+        }
     }
 }

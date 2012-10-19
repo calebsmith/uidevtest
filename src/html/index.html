@@ -54,18 +54,20 @@
                         </p>
                     </span>
                 </div>
+                <div class="span9 pull-right">
+                    <span class="social">
+                        <a href="#"><span class="icon comment" />COMMENT</a>
+                        <a href="#"><span class="icon share" />SHARE</a>
+                        <a href="#"><span class="icon favorite" />FAVORITE</a>
+                        <a href="#"><span class="icon vote" />VOTE</a>
+                    </span>
+                </div>
                 <div class="span2 pull-left">
                     <img id="story-image" src="<%= story.get('lead_photo_image_url') %>" alt="<%= story.get('lead_photo_caption')%>" />
                     <p id="photo-credit"><%= story.get('lead_photo_credit') %></p>
                     <p id="photo-summary"><%= story.get('summary') %></p>
                 </div>
                 <div class="span9 pull-right">
-                    <span class="social">
-                        <a id="social-comment">COMMENT</a>
-                        <a id="social-share">SHARE</a>
-                        <a id="social-favorite">FAVORITE</a>
-                        <a id="social-vote">VOTE</a>
-                    </span>
                     <p>By:<span class="authors"> <%= story.get_author_display() %></span></p>
                     <span class="story">
                         <%= story.get('story') %>
