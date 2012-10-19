@@ -8894,3 +8894,42 @@ body a:hover a:active {
   font-size: 14px;
   font-color: #444444;
 }
+#story-detail-view h1,
+#story-detail-view h2,
+#story-detail-view p,
+#story-detail-view a {
+  font-family: arial;
+}
+#story-detail-view a {
+  color: #036dbe;
+}
+#story-detail-view #breadcrumb {
+  border-top: 1px solid #cdcdcd;
+  border-bottom: 1px solid #cdcdcd;
+  font: 11px bold #036dbe;
+}
+#story-detail-view .headline {
+  font: 24px "arial";
+  color: #444444;
+}
+#story-detail-view .authors {
+  color: #036dbe;
+}
+#story-detail-view .social {
+  font: 11px bold #036dbe;
+  cursor: pointer;
+}
+#story-detail-view .story-times {
+  font-size: 11px;
+  color: #444444;
+}
+#story-detail-view .story {
+  font-size: 14px;
+  font-height: 18px;
+  color: #444444;
+}
+#story-detail-view #photo-summary {
+  font-size: 14px;
+  font-height: 14px;
+  color: #444444;
+}

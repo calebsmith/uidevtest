@@ -6,6 +6,7 @@
 @blue: #036dbe;
 @purple: #b93c61;
 @gray: #444444;
+@light_gray: #cdcdcd;
 
 body {
     
@@ -60,5 +61,44 @@ body {
             font-size: 14px;
             font-color: @gray;
         }
+    }
+}
+
+#story-detail-view  {
+    h1, h2, p, a {
+        font-family: arial;
+    }
+    a {
+        color: @blue;
+    }
+    #breadcrumb {
+        border-top: 1px solid @light_gray;
+        border-bottom: 1px solid @light_gray;
+        font: 11px bold @blue;
+    }
+    .headline {
+        font: 24px "arial";
+        color: @gray;
+    }
+    .authors {
+        color: @blue;
+    }
+    .social {
+        font: 11px bold @blue;
+        cursor: pointer;
+    }
+    .story-times {
+        font-size: 11px;
+        color: @gray;
+    }
+    .story {
+        font-size: 14px;
+        font-height: 18px;
+        color: @gray;
+    }
+    #photo-summary {
+        font-size: 14px;
+        font-height: 14px;
+        color: @gray;
     }
 }

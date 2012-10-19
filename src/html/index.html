@@ -41,27 +41,35 @@
             </div>
         </script>
         <script type="text/html" id="story-detail">
-            <div class="row-fluid">
+            <div id="story-detail-view" class="row-fluid">
                 <div class="span12">
-                    <div id="header" class='navbar'>
+                    <div id="breadcrumb" class='navbar'>
                         Home &raquo; <a id="story-list-link" href="#">News</a>
                     </div>
-                    <h2><%= story.get_title_display() %></h2>
+                    <h2 class='headline'><%= story.get('title') %></h2>
                     <span class="story-times">
-                        <p>Updated: <%= story.get_updated_display() %> |
+                        <p>
+                        Updated: <%= story.get_updated_display() %> |
                         Posted: <%= story.get_pub_date_display() %>
                         </p>
                     </span>
                 </div>
-                <div class="span2">
+                <div class="span2 pull-left">
                     <img id="story-image" src="<%= story.get('lead_photo_image_url') %>" alt="<%= story.get('lead_photo_caption')%>" />
                     <p id="photo-credit"><%= story.get('lead_photo_credit') %></p>
-                    <p id="photo-caption"><%= story.get('lead_photo_caption') %></p>
+                    <p id="photo-summary"><%= story.get('summary') %></p>
                 </div>
-                <div class="span10">
-                    <span id="social-links"></span>
-                    <p>By: <%= story.get_author_display() %></p>
-                    <p><%= story.get('story') %></p>
+                <div class="span9 pull-right">
+                    <span class="social">
+                        <a id="social-comment">COMMENT</a>
+                        <a id="social-share">SHARE</a>
+                        <a id="social-favorite">FAVORITE</a>
+                        <a id="social-vote">VOTE</a>
+                    </span>
+                    <p>By:<span class="authors"> <%= story.get_author_display() %></span></p>
+                    <span class="story">
+                        <%= story.get('story') %>
+                    </span>
                 </div>
             </div>
         </script>
