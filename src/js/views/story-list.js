@@ -12,8 +12,9 @@ define([
             this.template = _.template($("#story-list").html());
             // Build story collection from local JSON data
             this.detail_view = new storyDetailView();
-            this.detail_view.storyListView = self;
             this.collection = new storyCollection();
+            this.detail_view.storyListView = this;
+            this.detail_view.collection = this.collection;
             this.collection.bind('completed_loading', this.render, this);
             this.collection.fetch({
                 success: function(data) {
@@ -68,6 +69,12 @@ define([
                 $el.fadeIn('fast');
                 self.bind_links();
             });
+            window.onpopstate = function(event) {
+                if (event.state !== null) {
+                    self.collection.attach_get_params();
+                    self.render();
+                }
+            };
         },
         bind_links: function() {
             var self = this;
@@ -80,6 +87,7 @@ define([
                     var $link_element = $(link_element);
                     $link_element.click(function(e){
                         var storyIndex = $link_element.data().storyIndex;
+                        window.history.pushState({}, '', "?story=sto" + storyIndex);
                         self.detail_view.render(
                             self.collection.models[storyIndex - 1]
                         );

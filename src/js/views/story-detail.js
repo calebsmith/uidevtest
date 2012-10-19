@@ -26,9 +26,16 @@ define([
                 $('#story-list-link').click(function(e) {
                     // Pass list view false to indicate this is not the intiial
                     // page load.
+                    window.history.pushState({}, '', window.document.location.search);
                     self.storyListView.render(false);
                 });
             });
+            // If navigating here from the list view, return to the list view
+            window.onpopstate = function(event) {
+                if (event.state === null) {
+                    self.storyListView.render(false);
+                }
+            };
         }
     });
     return storyDetailView;
