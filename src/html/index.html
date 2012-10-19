@@ -69,9 +69,9 @@
                 </div>
                 <div class="span9 pull-right">
                     <p>By:<span class="authors"> <%= story.get_author_display() %></span></p>
-                    <span class="story">
-                        <%= story.get('story') %>
-                    </span>
+                </div>
+                <div class="story span9 pull-right">
+                    <%= story.get_story_display() %>
                 </div>
             </div>
         </script>

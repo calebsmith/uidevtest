@@ -41,8 +41,23 @@ define([
             get_updated_display: function() {
                 return this._format_datetime(this.get('updated'));
             },
-            get_pub_date_display: function(){
+            get_pub_date_display: function() {
                 return this._format_datetime(this.get('pub_date'));
+            },
+            get_story_display: function() {
+                var $story_body = $(this.get('story')),
+                    half_length = Math.floor($story_body.length / 2),
+                    $first_half = $story_body.slice(0, half_length),
+                    $second_half = $story_body.slice(half_length, $story_body.length);
+                return _.reduce([$first_half, $second_half], function(memo, object) {
+                    /*
+                    .html() leaves off the html of the node it is on, so this
+                    hack of first appending to a parent <div> should return the
+                    full html
+                    */
+                    return memo + $('<div>').append($('<div class="span5"></div>')
+                                            .append(object)).html();
+                }, '');
             }
         });
         return storyModel;
